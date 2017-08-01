@@ -1,0 +1,6 @@
+- platform: manual
+  name: "Alarm"
+  code: !secret alarm_code
+  pending_time: 0
+  trigger_time: 1
+

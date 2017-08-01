@@ -1,0 +1,233 @@
+###############################################
+###
+### ALARM
+###
+###############################################
+- alias: 'Trigger alarm while armed away'
+  trigger:
+    - platform: state
+      entity_id: sensor.motionsensor
+      to: 'Motion'
+    - platform: state
+      entity_id: sensor.frontdoorsensor
+      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.garagedoorsensor
+      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.backdoorsensor
+      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.denwindowsensor
+      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.jaydenwindowsensor
+      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.alliewindowsensor
+      from: 'Closed'
+      to: 'Open'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_away
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.alarm
+    - service: notify.all
+      data_template:
+        title: "ALARM "
+        message: "Alarm triggered by {{ trigger.to_state.attributes.friendly_name }}"
+        data:
+          push:
+            category: "ALARM"
+
+- alias: 'Trigger alarm while armed home'
+  trigger:
+    - platform: state
+      entity_id: sensor.frontdoorsensor
+      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.garagedoorsensor
+      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.backdoorsensor
+      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.denwindowsensor
+      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.jaydenwindowsensor
+      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.alliewindowsensor
+      from: 'Closed'
+      to: 'Open'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_home
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.alarm
+    - service: notify.all
+      data_template:
+        title: "ALARM "
+        message: "Alarm triggered by {{ trigger.to_state.attributes.friendly_name }}"
+        data:
+          push:
+            category: "ALARM"
+
+- alias: 'Siren when alarm triggered'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.alarm
+      to: 'triggered'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.siren_switch_10_0
+    - service: notify.all
+      data:
+        message: "ALARM!"
+        data:
+          push:
+            category: "ALARM"
+
+- alias: 'Siren off when disarmed'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.alarm
+      to: 'disarmed'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.siren_switch_10_0
+    - service: notify.all
+      data:
+        message: "Alarm Disarmed"
+
+
+###############################################
+###
+### iOS App ALARM CONTROL
+###
+###############################################
+- alias: 'iOS Silence Alarm'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: SILENCE_ALARM
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.alarm
+      data:
+        code: !secret alarm_code
+
+###############################################
+###
+### PRESENCE ALARM CONTROL
+###
+###############################################
+- alias: 'Arm when away'
+  trigger:
+    - platform: state
+      entity_id: sensor.anthony_location
+      from: 'home'
+      to: 'away'
+    - platform: state
+      entity_id: sensor.tawny_location
+      from: 'home'
+      to: 'away'
+  condition:
+    condition: and
+    conditions:
+     - condition: state
+       entity_id: sensor.anthony_location
+       state: 'away'
+     - condition: state
+       entity_id: sensor.tawny_location
+       state: 'away'
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.alarm
+      data:
+        code: !secret alarm_code
+    - service: notify.all
+      data:
+        message: "No one home, alarm armed"
+
+- alias: 'Disarm when home'
+  trigger:
+    - platform: state
+      entity_id: sensor.anthony_location
+      from: 'away'
+      to: 'home'
+    - platform: state
+      entity_id: sensor.tawny_location
+      from: 'away'
+      to: 'home'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.alarm
+      data:
+        code: !secret alarm_code
+    - service: notify.all
+      data:
+        message: "Arrived home, alarm disarmed"
+
+###############################################
+###
+### TIME ALARM CONTROL
+###
+###############################################
+- alias: 'Arm for evening when home'
+  trigger:
+    - platform: time
+      at: '23:00:00'
+  condition:
+    condition: or
+    conditions:
+     - condition: state
+       entity_id: sensor.anthony_location
+       state: 'home'
+     - condition: state
+       entity_id: sensor.tawny_location
+       state: 'home'
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      entity_id: alarm_control_panel.alarm
+      data:
+        code: !secret alarm_code
+
+- alias: 'Disarm for morning when home'
+  trigger:
+    - platform: time
+      at: '06:00:00'
+  condition:
+    condition: or
+    conditions:
+     - condition: state
+       entity_id: sensor.anthony_location
+       state: 'home'
+     - condition: state
+       entity_id: sensor.tawny_location
+       state: 'home'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.alarm
+      data:
+        code: !secret alarm_code
+
+
+
+

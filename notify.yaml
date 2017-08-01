@@ -1,0 +1,6 @@
+- name: all
+  platform: group
+  services:
+    - service: ios_anthonys_iphone
+    - service: ios_tawnys_iphone
+

@@ -1,0 +1,8 @@
+alarm_mode:
+  name: Alarm Mode
+  initial: "Off"
+  options:
+    - "Off"
+    - "Partial"
+    - "On"
+

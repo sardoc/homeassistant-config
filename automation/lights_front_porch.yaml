@@ -1,0 +1,27 @@
+#####################################################################
+### Turn off front porch lights in morning
+#####################################################################
+- alias: 'Front Porch Light Off Morning'
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "+00:30:00"
+  action:
+    service: switch.turn_off
+    entity_id: switch.front_porch_light_switch_2_0
+
+#####################################################################
+### Turn on front porch lights in evening
+#####################################################################
+- alias: 'Front Porch Light On Evening'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  action:
+    service: switch.turn_on
+    entity_id: switch.front_porch_light_switch_2_0
+
+
+
+

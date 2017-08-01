@@ -1,0 +1,135 @@
+#####################################################################
+### HOME VIEW (DEFAULT)
+#####################################################################
+default_view:
+  name: DEFAULT
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.location
+    - group.lights
+    - group.temperature
+    - group.humidity
+    - alarm_control_panel.alarm
+
+#####################################################################
+### SECURITY VIEW
+#####################################################################
+security_view:
+  name: Security
+  view: yes
+  icon: mdi:security-home
+  entities:
+    - alarm_control_panel.alarm
+    - group.sensors
+    - group.siren
+
+#####################################################################
+### AUTOMATION VIEW
+#####################################################################
+automation_view:
+  name: Automations
+  view: yes
+  icon: mdi:playlist-play
+  entities:
+    - group.automation
+    - group.automation_security
+
+#####################################################################
+### MEDIA VIEW
+#####################################################################
+media_view:
+  name: Media
+  view: yes
+  icon: mdi:theater
+  entities:
+    - media_player.kodi
+
+
+zones:
+  name: Zones
+  entities:
+    - binary_sensor.floorplan
+
+#####################################################################
+### BATTERY VIEW
+#####################################################################
+sensors_view:
+  name: Battery Level
+  view: yes
+  icon: mdi:battery
+  entities:
+    - group.battery
+
+#####################################################################
+### GROUP CONFIGURATION
+#####################################################################
+lights:
+  name: Lights
+  entities:
+    - switch.front_porch_light_switch_2_0
+    - light.living_room_light_level_6_0
+humidity:
+  name: Humidity
+  entities:
+    - sensor.living_room_multisensor_relative_humidity_5_5
+    - sensor.dark_sky_humidity
+temperature:
+  name: Temperature
+  entities:
+    - sensor.living_room_multisensor_temperature_5_1
+    - sensor.dark_sky_temperature
+sensors:
+  name: Sensors
+  entities:
+    - sensor.motionsensor
+    - sensor.frontdoorsensor
+    - sensor.garagedoorsensor
+    - sensor.backdoorsensor
+    - sensor.jaydenwindowsensor
+    - sensor.alliewindowsensor
+    - sensor.denwindowsensor
+automation:
+  name: Automation
+  entities:
+    - automation.front_porch_light_off_morning
+    - automation.front_porch_light_on_evening
+automation_security:
+  name: Security Automation
+  entities:
+    - automation.trigger_alarm_while_armed_away
+    - automation.trigger_alarm_while_armed_home
+    - automation.siren_off_when_disarmed
+    - automation.siren_when_alarm_triggered
+    - automation.arm_when_away
+    - automation.disarm_when_home
+    - automation.ios_silence_alarm
+    - automation.arm_for_evening_when_home
+
+location:
+  name: Location
+  entities:
+    - device_tracker.tawnys_iphone
+    - device_tracker.anthonys_iphone
+siren:
+  name: Siren
+  entities:
+    - switch.siren_switch_10_0
+battery:
+  name: Battery
+  entities:
+    - sensor.motionsensor_battery
+    - sensor.frontdoorsensor_battery
+    - sensor.garagedoorsensor_battery
+    - sensor.backdoorsensor_battery
+    - sensor.jaydenwindowsensor_battery
+    - sensor.alliewindowsensor_battery
+    - sensor.denwindowsensor_battery
+    - sensor.siren_battery
+
+
+
+
+
+
+

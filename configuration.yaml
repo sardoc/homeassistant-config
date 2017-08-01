@@ -1,0 +1,125 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude_loc_home
+  longitude: !secret longitude_loc_home
+  elevation: 377
+  unit_system: imperial
+  time_zone: America/Phoenix
+  customize:
+    binary_sensor.floorplan:
+      custom_ui_state_card: floorplan
+      config: !include floorplan.yaml
+
+#####################################################################
+### ZONE CONFIG
+#####################################################################
+zone 1:
+  name: !secret name_work_1
+  latitude: !secret latitude_work_1
+  longitude: !secret longitude_work_1
+  radius: 350
+  icon: mdi:briefcase
+
+zone 2:
+  name: !secret name_work_2
+  latitude: !secret latitude_work_2
+  longitude: !secret longitude_work_2
+  radius: 350
+  icon: mdi:briefcase
+
+zone 3:
+  name: !secret name_home_near
+  latitude: !secret latitude_home_near
+  longitude: !secret longitude_home_near
+  radius: 350
+  icon: mdi:home-outline
+
+#####################################################################
+### ZWAVE CONFIG
+#####################################################################
+zwave:
+  usb_path: /dev/ttyACM0
+  new_entity_ids: False
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  api_password: !secret http_password
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+  base_url: !secret base_url
+
+updater:
+  include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  platform: google
+
+ios:
+  push:
+    categories:
+      - name: Alarm
+        identifier: 'ALARM'
+        actions:
+          - identifier: 'SILENCE_ALARM'
+            title: 'Silence Alarm'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: yes
+            behavior: 'default'
+
+
+alarm_control_panel: !include alarm_control_panel.yaml
+input_boolean: !include input_boolean.yaml
+input_select: !include input_select.yaml
+media_player: !include media_players.yaml
+notify: !include notify.yaml
+sensor: !include_dir_merge_list sensors/
+group: !include groups.yaml
+automation: !include_dir_merge_list automation/
+light: !include_dir_merge_list light/
+binary_sensor:
+  - platform: mqtt
+    state_topic: dummy/floorplan/sensor
+    name: Floorplan
+
+
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
+
+
+
+
+
+
+
+
+
+
+
+
+

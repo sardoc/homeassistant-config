@@ -1,0 +1,117 @@
+name: Floorplan
+image: /local/custom_ui/floorplan/floorplan.svg
+stylesheet: /local/custom_ui/floorplan/floorplan.css
+
+# These options are optional
+# warnings:            # enable warnings (to find out why things might ot be working correctly)
+# pan_zoom:            # enable experimental panning / zooming
+hide_app_toolbar:    # hide the application toolbar (when used as a custom panel)
+
+groups:
+  - name: Entry Points
+    entities:
+      - sensor.alliewindowsensor
+      - sensor.backdoorsensor
+      - sensor.denwindowsensor
+      - sensor.frontdoorsensor
+      - sensor.garagedoorsensor
+      - sensor.jaydenwindowsensor
+    states:
+      - state: 'Closed'
+        class: 'window-closed'
+      - state: 'Open'
+        class: 'window-open'
+
+  - name: Outdoor Lights
+    entities:
+      - switch.front_porch_light_switch_2_0
+    states:
+      - state: 'on'
+        class: 'light-on'
+      - state: 'off'
+        class: 'outdoor-light-off'
+    action:
+      domain: switch
+      service: toggle
+
+  - name: Outdoor Lights 2
+    entities:
+      - light.garage_north_light
+      - light.garage_south_light
+    states:
+      - state: 'on'
+        class: 'light-on'
+      - state: 'off'
+        class: 'outdoor-light-off'
+    action:
+      domain: switch
+      service: toggle
+      data:
+        entity_id: switch.front_porch_light_switch_2_0
+
+  - name: Indoor Lights
+    entities:
+      - light.living_room_light_level_6_0
+    states:
+      - state: 'on'
+        class: 'light-on'
+      - state: 'off'
+        class: 'light-off'
+    action:
+      domain: light
+      service: toggle
+
+  - name: Alarm
+    entities:
+      - alarm_control_panel.alarm
+    text_template: '
+      if (entity.state == "armed_home") 
+      {
+        return "Armed Home";
+      }
+      else if (entity.state == "armed_away")
+      {
+        return "Armed Away";
+      }
+      else if (entity.state == "disarmed")
+      {
+        return "Disarmed";
+      }
+      else
+      {
+        return "undefined";
+      }
+    '
+    states:
+      - state: 'armed_home'
+        class: 'text-away'
+      - state: 'armed_away'
+        class: 'text-away'
+      - state: 'disarmed'
+        class: 'text-home'
+
+  - name: text_font_date
+    entities:
+      - sensor.floorplan_date
+    text_template: '${entity.state ? entity.state : "undefined"}'
+    class_template: 'return "static-text-date";'
+
+  - name: text_font_time
+    entities:
+      - sensor.floorplan_time
+    text_template: '${entity.state ? entity.state : "undefined"}'
+    class_template: 'return "static-text-time";'
+
+  - name: Family
+    entities:
+      - device_tracker.anthonys_iphone
+      - device_tracker.tawnys_iphone
+    text_template: '${entity.state ? entity.state.replace("not_home", "away") : "undefined"}'
+    states:
+      - state: 'home'
+        class: 'text-home'
+      - state: 'not_home'
+        class: 'text-away'
+
+
+
