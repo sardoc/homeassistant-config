@@ -5,7 +5,7 @@
   sensors:
     motionsensor:
       value_template: >-
-        {% set state = states('sensor.living_room_multisensor_burglar_5_10') %}
+        {% set state = states('sensor.living_room_multisensor_burglar') %}
         {% if state == '8' %}
           Motion
         {% elif state == '0' %}
@@ -24,7 +24,7 @@
   sensors:
     frontdoorsensor:
       value_template: >-
-        {% set state = states('binary_sensor.front_door_sensor_8_0') %}
+        {% set state = states('binary_sensor.front_door_sensor') %}
         {% if state == 'on' %}
           Open
         {% elif state == 'off' %}
@@ -41,7 +41,7 @@
   sensors:
     garagedoorsensor:
       value_template: >-
-        {% set state = states('binary_sensor.garage_door_sensor_9_0') %}
+        {% set state = states('binary_sensor.garage_door_sensor') %}
         {% if state == 'on' %}
           Open
         {% elif state == 'off' %}
@@ -55,7 +55,7 @@
   sensors:
     denwindowsensor:
       value_template: >-
-        {% set state = states('sensor.den_window_access_control_12_9') %}
+        {% set state = states('sensor.den_window_access_control') %}
         {% if state == '22' %}
           Open
         {% elif state == '23' %}
@@ -69,7 +69,7 @@
   sensors:
     jaydenwindowsensor:
       value_template: >-
-        {% set state = states('sensor.jayden_room_window_access_control_16_9') %}
+        {% set state = states('sensor.jayden_room_window_access_control') %}
         {% if state == '22' %}
           Open
         {% elif state == '23' %}
@@ -83,7 +83,7 @@
   sensors:
     backdoorsensor:
       value_template: >-
-        {% set state = states('sensor.back_door_access_control_14_9') %}
+        {% set state = states('sensor.back_door_access_control') %}
         {% if state == '22' %}
           Open
         {% elif state == '23' %}
@@ -97,7 +97,7 @@
   sensors:
     alliewindowsensor:
       value_template: >-
-        {% set state = states('sensor.allie_room_window_access_control_15_9') %}
+        {% set state = states('sensor.allie_room_window_access_control') %}
         {% if state == '22' %}
           Open
         {% elif state == '23' %}

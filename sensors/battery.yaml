@@ -2,56 +2,56 @@
   sensors:
     motionsensor_battery:
       unit_of_measurement: '%'
-      value_template: '{{ states.zwave.living_room_multisensor_5.attributes.battery_level }}'
+      value_template: '{{ states.zwave.living_room_multisensor.attributes.battery_level }}'
       friendly_name: 'Living Room Motion Sensor'
 
 - platform: template
   sensors:
     frontdoorsensor_battery:
       unit_of_measurement: '%'
-      value_template: '{{ states.zwave.front_door_8.attributes.battery_level }}'
+      value_template: '{{ states.zwave.front_door.attributes.battery_level }}'
       friendly_name: 'Front Door Sensor'
 
 - platform: template
   sensors:
     garagedoorsensor_battery:
       unit_of_measurement: '%'
-      value_template: '{{ states.zwave.garage_door_9.attributes.battery_level }}'
+      value_template: '{{ states.zwave.garage_door.attributes.battery_level }}'
       friendly_name: 'Garage Door Sensor'
 
 - platform: template
   sensors:
     denwindowsensor_battery:
       unit_of_measurement: '%'
-      value_template: '{{ states.zwave.den_window_12.attributes.battery_level }}'
+      value_template: '{{ states.zwave.den_window.attributes.battery_level }}'
       friendly_name: 'Den Window Sensor'
 
 - platform: template
   sensors:
     jaydenwindowsensor_battery:
       unit_of_measurement: '%'
-      value_template: '{{ states.zwave.jayden_room_window_16.attributes.battery_level }}'
+      value_template: '{{ states.zwave.jayden_room_window.attributes.battery_level }}'
       friendly_name: 'Jayden Window Sensor'
 
 - platform: template
   sensors:
     backdoorsensor_battery:
       unit_of_measurement: '%'
-      value_template: '{{ states.zwave.back_door_14.attributes.battery_level }}'
+      value_template: '{{ states.zwave.back_door.attributes.battery_level }}'
       friendly_name: 'Back Door Sensor'
 
 - platform: template
   sensors:
     alliewindowsensor_battery:
       unit_of_measurement: '%'
-      value_template: '{{ states.zwave.allie_room_window_15.attributes.battery_level }}'
+      value_template: '{{ states.zwave.allie_room_window.attributes.battery_level }}'
       friendly_name: 'Allie Window Sensor'
 
 - platform: template
   sensors:
     siren_battery:
       unit_of_measurement: '%'
-      value_template: '{{ states.zwave.siren_10.attributes.battery_level }}'
+      value_template: '{{ states.zwave.siren.attributes.battery_level }}'
       friendly_name: 'Siren'
 
 

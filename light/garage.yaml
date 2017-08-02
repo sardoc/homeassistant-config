@@ -3,30 +3,30 @@
     garage_north_light:
       friendly_name: "Garage North Light"
       value_template: >-
-        {% set state = states('switch.front_porch_light_switch_2_0') %}
+        {% set state = states('switch.front_porch_light_switch') %}
         {{ state }}
       turn_on:
         service: switch.turn_on
         data:
-          entity_id: switch.front_porch_light_switch_2_0
+          entity_id: switch.front_porch_light_switch
       turn_off: 
         service: switch.turn_off
         data:
-          entity_id: switch.front_porch_light_switch_2_0
+          entity_id: switch.front_porch_light_switch
 
 - platform: template
   lights:
     garage_south_light:
       friendly_name: "Garage South Light"
       value_template: >-
-        {% set state = states('switch.front_porch_light_switch_2_0') %}
+        {% set state = states('switch.front_porch_light_switch') %}
         {{ state }}
       turn_on:
         service: switch.turn_on
         data:
-          entity_id: switch.front_porch_light_switch_2_0
+          entity_id: switch.front_porch_light_switch
       turn_off:
         service: switch.turn_off
         data:
-          entity_id: switch.front_porch_light_switch_2_0
+          entity_id: switch.front_porch_light_switch
 

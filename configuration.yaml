@@ -39,7 +39,6 @@ zone 3:
 #####################################################################
 zwave:
   usb_path: /dev/ttyACM0
-  new_entity_ids: False
 
 # Enables the frontend
 frontend:

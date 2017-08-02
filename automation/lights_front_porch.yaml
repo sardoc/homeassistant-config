@@ -8,7 +8,7 @@
     offset: "+00:30:00"
   action:
     service: switch.turn_off
-    entity_id: switch.front_porch_light_switch_2_0
+    entity_id: switch.front_porch_light_switch
 
 #####################################################################
 ### Turn on front porch lights in evening
@@ -20,7 +20,7 @@
     offset: "-00:30:00"
   action:
     service: switch.turn_on
-    entity_id: switch.front_porch_light_switch_2_0
+    entity_id: switch.front_porch_light_switch
 
 
 

@@ -95,7 +95,7 @@
       to: 'triggered'
   action:
     - service: switch.turn_on
-      entity_id: switch.siren_switch_10_0
+      entity_id: switch.siren_switch
     - service: notify.all
       data:
         message: "ALARM!"
@@ -110,7 +110,7 @@
       to: 'disarmed'
   action:
     - service: switch.turn_off
-      entity_id: switch.siren_switch_10_0
+      entity_id: switch.siren_switch
     - service: notify.all
       data:
         message: "Alarm Disarmed"

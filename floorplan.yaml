@@ -24,7 +24,7 @@ groups:
 
   - name: Outdoor Lights
     entities:
-      - switch.front_porch_light_switch_2_0
+      - switch.front_porch_light_switch
     states:
       - state: 'on'
         class: 'light-on'
@@ -47,11 +47,11 @@ groups:
       domain: switch
       service: toggle
       data:
-        entity_id: switch.front_porch_light_switch_2_0
+        entity_id: switch.front_porch_light_switch
 
   - name: Indoor Lights
     entities:
-      - light.living_room_light_level_6_0
+      - light.living_room_light_level
     states:
       - state: 'on'
         class: 'light-on'

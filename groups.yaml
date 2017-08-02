@@ -67,17 +67,17 @@ sensors_view:
 lights:
   name: Lights
   entities:
-    - switch.front_porch_light_switch_2_0
-    - light.living_room_light_level_6_0
+    - switch.front_porch_light_switch
+    - light.living_room_light_level
 humidity:
   name: Humidity
   entities:
-    - sensor.living_room_multisensor_relative_humidity_5_5
+    - sensor.living_room_multisensor_relative_humidity
     - sensor.dark_sky_humidity
 temperature:
   name: Temperature
   entities:
-    - sensor.living_room_multisensor_temperature_5_1
+    - sensor.living_room_multisensor_temperature
     - sensor.dark_sky_temperature
 sensors:
   name: Sensors
@@ -114,7 +114,7 @@ location:
 siren:
   name: Siren
   entities:
-    - switch.siren_switch_10_0
+    - switch.siren_switch
 battery:
   name: Battery
   entities:
