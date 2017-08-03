@@ -5,7 +5,7 @@ stylesheet: /local/custom_ui/floorplan/floorplan.css
 # These options are optional
 # warnings:            # enable warnings (to find out why things might ot be working correctly)
 # pan_zoom:            # enable experimental panning / zooming
-hide_app_toolbar:    # hide the application toolbar (when used as a custom panel)
+# hide_app_toolbar:    # hide the application toolbar (when used as a custom panel)
 
 groups:
   - name: Entry Points
@@ -16,6 +16,19 @@ groups:
       - sensor.frontdoorsensor
       - sensor.garagedoorsensor
       - sensor.jaydenwindowsensor
+      - sensor.bonus_room_north_window
+      - sensor.bonus_room_ne_window
+      - sensor.bonus_room_se_window
+      - sensor.laundry_room_window
+      - sensor.dining_room_n_window
+      - sensor.dining_room_s_window
+      - sensor.living_room_e_window
+      - sensor.living_room_se_window
+      - sensor.living_room_sw_window
+      - sensor.master_bedroom_se_window
+      - sensor.master_bedroom_sw_window
+      - sensor.master_bedroom_w_window
+      - sensor.hallway_window
     states:
       - state: 'Closed'
         class: 'window-closed'

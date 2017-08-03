@@ -136,7 +136,187 @@
         {% endif %}
       friendly_name: 'Tawny'
 
+- platform: template
+  sensors:
+    bonus_room_north_window:
+      value_template: >-
+        {% set state = states('sensor.bonus_room_north_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Bonus Room N Window Sensor'
 
+- platform: template
+  sensors:
+    bonus_room_ne_window:
+      value_template: >-
+        {% set state = states('sensor.bonus_room_ne_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Bonus Room NE Window Sensor'
+
+- platform: template
+  sensors:
+    bonus_room_se_window:
+      value_template: >-
+        {% set state = states('sensor.bonus_room_se_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Bonus Room SE Window Sensor'
+
+- platform: template
+  sensors:
+    laundry_room_window:
+      value_template: >-
+        {% set state = states('sensor.laundry_room_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Laundry Room Window Sensor'
+
+- platform: template
+  sensors:
+    dining_room_n_window:
+      value_template: >-
+        {% set state = states('sensor.dining_room_n_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Dining Room N Window Sensor'
+
+- platform: template
+  sensors:
+    dining_room_s_window:
+      value_template: >-
+        {% set state = states('sensor.dining_room_s_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Dining Room S Window Sensor'
+
+- platform: template
+  sensors:
+    living_room_e_window:
+      value_template: >-
+        {% set state = states('sensor.living_room_e_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Living Room E Window Sensor'
+
+- platform: template
+  sensors:
+    living_room_se_window:
+      value_template: >-
+        {% set state = states('sensor.living_room_se_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Living Room SE Window Sensor'
+
+- platform: template
+  sensors:
+    living_room_sw_window:
+      value_template: >-
+        {% set state = states('sensor.living_room_sw_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Living Room SW Window Sensor'
+
+- platform: template
+  sensors:
+    master_bedroom_se_window:
+      value_template: >-
+        {% set state = states('sensor.master_bedroom_se_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Master Bedroom SE Window Sensor'
+
+- platform: template
+  sensors:
+    master_bedroom_sw_window:
+      value_template: >-
+        {% set state = states('sensor.master_bedroom_sw_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Master Bedroom SW Window Sensor'
+
+- platform: template
+  sensors:
+    master_bedroom_w_window:
+      value_template: >-
+        {% set state = states('sensor.master_bedroom_w_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Master Bedroom W Window Sensor'
+
+- platform: template
+  sensors:
+    hallway_window:
+      value_template: >-
+        {% set state = states('sensor.hallway_window_access_control') %}
+        {% if state == '22' %}
+          Open
+        {% elif state == '23' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Hallway Window Sensor'
 
 
 

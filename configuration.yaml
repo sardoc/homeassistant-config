@@ -39,6 +39,7 @@ zone 3:
 #####################################################################
 zwave:
   usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key
 
 # Enables the frontend
 frontend:

@@ -89,6 +89,20 @@ sensors:
     - sensor.jaydenwindowsensor
     - sensor.alliewindowsensor
     - sensor.denwindowsensor
+    - sensor.bonus_room_north_window
+    - sensor.bonus_room_ne_window
+    - sensor.bonus_room_se_window
+    - sensor.laundry_room_window
+    - sensor.dining_room_n_window
+    - sensor.dining_room_s_window
+    - sensor.living_room_e_window
+    - sensor.living_room_se_window
+    - sensor.living_room_sw_window
+    - sensor.master_bedroom_se_window
+    - sensor.master_bedroom_sw_window
+    - sensor.master_bedroom_w_window
+    - sensor.hallway_window
+
 automation:
   name: Automation
   entities:
