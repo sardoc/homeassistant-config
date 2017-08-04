@@ -9,27 +9,27 @@
       entity_id: sensor.motionsensor
       to: 'Motion'
     - platform: state
-      entity_id: sensor.frontdoorsensor
+      entity_id: sensor.front_door
       from: 'Closed'
       to: 'Open'
     - platform: state
-      entity_id: sensor.garagedoorsensor
+      entity_id: sensor.garage_entry_door
       from: 'Closed'
       to: 'Open'
     - platform: state
-      entity_id: sensor.backdoorsensor
+      entity_id: sensor.back_door
       from: 'Closed'
       to: 'Open'
     - platform: state
-      entity_id: sensor.denwindowsensor
+      entity_id: sensor.den_window
       from: 'Closed'
       to: 'Open'
     - platform: state
-      entity_id: sensor.jaydenwindowsensor
+      entity_id: sensor.jayden_room_window
       from: 'Closed'
       to: 'Open'
     - platform: state
-      entity_id: sensor.alliewindowsensor
+      entity_id: sensor.allie_room_window
       from: 'Closed'
       to: 'Open'
   condition:
@@ -50,27 +50,27 @@
 - alias: 'Trigger alarm while armed home'
   trigger:
     - platform: state
-      entity_id: sensor.frontdoorsensor
+      entity_id: sensor.front_door
       from: 'Closed'
       to: 'Open'
     - platform: state
-      entity_id: sensor.garagedoorsensor
+      entity_id: sensor.garage_entry_door
       from: 'Closed'
       to: 'Open'
     - platform: state
-      entity_id: sensor.backdoorsensor
+      entity_id: sensor.back_door
       from: 'Closed'
       to: 'Open'
     - platform: state
-      entity_id: sensor.denwindowsensor
+      entity_id: sensor.den_window
       from: 'Closed'
       to: 'Open'
     - platform: state
-      entity_id: sensor.jaydenwindowsensor
+      entity_id: sensor.jayden_room_window
       from: 'Closed'
       to: 'Open'
     - platform: state
-      entity_id: sensor.alliewindowsensor
+      entity_id: sensor.allie_room_window
       from: 'Closed'
       to: 'Open'
   condition:

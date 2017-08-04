@@ -21,7 +21,10 @@ security_view:
   icon: mdi:security-home
   entities:
     - alarm_control_panel.alarm
-    - group.sensors
+    - group.door_sensors
+    - group.motion_sensors
+    - group.window_sensors
+    - group.tamper_sensors
     - group.siren
 
 #####################################################################
@@ -79,16 +82,25 @@ temperature:
   entities:
     - sensor.living_room_multisensor_temperature
     - sensor.dark_sky_temperature
-sensors:
-  name: Sensors
+motion_sensors:
+  name: Motion Sensors
   entities:
     - sensor.motionsensor
-    - sensor.frontdoorsensor
-    - sensor.garagedoorsensor
-    - sensor.backdoorsensor
-    - sensor.jaydenwindowsensor
-    - sensor.alliewindowsensor
-    - sensor.denwindowsensor
+door_sensors:
+  name: Door Sensors
+  entities:
+    - sensor.front_door
+    - sensor.garage_entry_door
+    - sensor.back_door
+    - sensor.garage_door
+    - sensor.master_closet_attic_door
+    - sensor.garage_attic_door
+window_sensors:
+  name: Window Sensors
+  entities:
+    - sensor.jayden_room_window
+    - sensor.allie_room_window
+    - sensor.den_window
     - sensor.bonus_room_north_window
     - sensor.bonus_room_ne_window
     - sensor.bonus_room_se_window
@@ -101,8 +113,25 @@ sensors:
     - sensor.master_bedroom_se_window
     - sensor.master_bedroom_sw_window
     - sensor.master_bedroom_w_window
-    - sensor.hallway_window
-
+tamper_sensors:
+  name: Tamper Alarms
+  entities:
+    - sensor.back_door_tamper
+    - sensor.jayden_room_window_tamper
+    - sensor.allie_room_window_tamper
+    - sensor.den_window_tamper
+    - sensor.bonus_room_north_window_tamper
+    - sensor.bonus_room_ne_window_tamper
+    - sensor.bonus_room_se_window_tamper
+    - sensor.laundry_room_window_tamper
+    - sensor.dining_room_n_window_tamper
+    - sensor.dining_room_s_window_tamper
+    - sensor.living_room_e_window_tamper
+    - sensor.living_room_se_window_tamper
+    - sensor.living_room_sw_window_tamper
+    - sensor.master_bedroom_se_window_tamper
+    - sensor.master_bedroom_sw_window_tamper
+    - sensor.master_bedroom_w_window_tamper
 automation:
   name: Automation
   entities:
@@ -139,6 +168,21 @@ battery:
     - sensor.jaydenwindowsensor_battery
     - sensor.alliewindowsensor_battery
     - sensor.denwindowsensor_battery
+    - sensor.bonus_room_north_window_battery
+    - sensor.bonus_room_ne_window_battery
+    - sensor.bonus_room_se_window_battery
+    - sensor.laundry_room_window_battery
+    - sensor.dining_room_n_window_battery
+    - sensor.dining_room_s_window_battery
+    - sensor.living_room_e_window_battery
+    - sensor.living_room_se_window_battery
+    - sensor.living_room_sw_window_battery
+    - sensor.master_bedroom_se_window_battery
+    - sensor.master_bedroom_sw_window_battery
+    - sensor.master_bedroom_w_window_battery
+    - sensor.garage_attic_door_battery
+    - sensor.master_closet_attic_door_battery
+    - sensor.garage_door_battery
     - sensor.siren_battery
 
 

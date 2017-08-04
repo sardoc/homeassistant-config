@@ -10,12 +10,12 @@ stylesheet: /local/custom_ui/floorplan/floorplan.css
 groups:
   - name: Entry Points
     entities:
-      - sensor.alliewindowsensor
-      - sensor.backdoorsensor
-      - sensor.denwindowsensor
-      - sensor.frontdoorsensor
-      - sensor.garagedoorsensor
-      - sensor.jaydenwindowsensor
+      - sensor.allie_room_window
+      - sensor.back_door
+      - sensor.den_window
+      - sensor.front_door
+      - sensor.garage_entry_door
+      - sensor.jayden_room_window
       - sensor.bonus_room_north_window
       - sensor.bonus_room_ne_window
       - sensor.bonus_room_se_window
@@ -28,7 +28,9 @@ groups:
       - sensor.master_bedroom_se_window
       - sensor.master_bedroom_sw_window
       - sensor.master_bedroom_w_window
-      - sensor.hallway_window
+      - sensor.garage_door
+      - sensor.garage_attic_door
+      - sensor.master_closet_attic_door
     states:
       - state: 'Closed'
         class: 'window-closed'

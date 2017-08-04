@@ -16,8 +16,8 @@
   sensors:
     garagedoorsensor_battery:
       unit_of_measurement: '%'
-      value_template: '{{ states.zwave.garage_door.attributes.battery_level }}'
-      friendly_name: 'Garage Door Sensor'
+      value_template: '{{ states.zwave.garage_entry_door.attributes.battery_level }}'
+      friendly_name: 'Garage Entry Door Sensor'
 
 - platform: template
   sensors:
@@ -53,6 +53,111 @@
       unit_of_measurement: '%'
       value_template: '{{ states.zwave.siren.attributes.battery_level }}'
       friendly_name: 'Siren'
+
+- platform: template
+  sensors:
+    bonus_room_north_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.bonus_room_north_window.attributes.battery_level }}'
+      friendly_name: 'Bonus Room N Window'
+
+- platform: template
+  sensors:
+    bonus_room_ne_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.bonus_room_ne_window.attributes.battery_level }}'
+      friendly_name: 'Bonus Room NE Window'
+
+- platform: template
+  sensors:
+    bonus_room_se_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.bonus_room_se_window.attributes.battery_level }}'
+      friendly_name: 'Bonus Room SE Window'
+
+- platform: template
+  sensors:
+    laundry_room_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.laundry_room_window.attributes.battery_level }}'
+      friendly_name: 'Laundry Room Window'
+
+- platform: template
+  sensors:
+    dining_room_n_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.dining_room_n_window.attributes.battery_level }}'
+      friendly_name: 'Dining Room N Window'
+
+- platform: template
+  sensors:
+    dining_room_s_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.dining_room_s_window.attributes.battery_level }}'
+      friendly_name: 'Dining Room S Window'
+
+- platform: template
+  sensors:
+    living_room_e_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.living_room_e_window.attributes.battery_level }}'
+      friendly_name: 'Living Room E Window'
+
+- platform: template
+  sensors:
+    living_room_se_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.living_room_se_window.attributes.battery_level }}'
+      friendly_name: 'Living Room SE Window'
+
+- platform: template
+  sensors:
+    living_room_sw_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.living_room_sw_window.attributes.battery_level }}'
+      friendly_name: 'Living Room SW Window'
+
+- platform: template
+  sensors:
+    master_bedroom_se_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.master_bedroom_se_window.attributes.battery_level }}'
+      friendly_name: 'Master Bedroom SE Window'
+
+- platform: template
+  sensors:
+    master_bedroom_sw_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.master_bedroom_sw_window.attributes.battery_level }}'
+      friendly_name: 'Master Bedroom SW Window'
+
+- platform: template
+  sensors:
+    master_bedroom_w_window_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.master_bedroom_w_window.attributes.battery_level }}'
+      friendly_name: 'Master Bedroom W Window'
+
+- platform: template
+  sensors:
+   garage_attic_door_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.garage_attic_door.attributes.battery_level }}'
+      friendly_name: 'Garage Attic Door'
+
+- platform: template
+  sensors:
+    master_closet_attic_door_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.master_closet_attic_door.attributes.battery_level }}'
+      friendly_name: 'Master Closet Attic Door'
+
+- platform: template
+  sensors:
+    garage_door_battery:
+      unit_of_measurement: '%'
+      value_template: '{{ states.zwave.garage_door.attributes.battery_level }}'
+      friendly_name: 'Garage Door'
 
 
 

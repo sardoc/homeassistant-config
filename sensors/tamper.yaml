@@ -1,0 +1,263 @@
+#####################################################################
+### Aeotec Door/Window Sensor
+#####################################################################
+- platform: template
+  sensors:
+    den_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.den_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Den Window'
+
+- platform: template
+  sensors:
+    jayden_room_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.jayden_room_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Jayden Room Window'
+
+- platform: template
+  sensors:
+    back_door_tamper:
+      value_template: >-
+        {% set state = states('sensor.back_door_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Back Door'
+
+- platform: template
+  sensors:
+    allie_room_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.allie_room_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Allie Room Window'
+
+#####################################################################
+### Monoprice Door/Window Sensor
+#####################################################################
+- platform: template
+  sensors:
+    bonus_room_north_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.bonus_room_north_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Bonus Room N Window'
+
+- platform: template
+  sensors:
+    bonus_room_ne_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.bonus_room_ne_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Bonus Room NE Window'
+
+- platform: template
+  sensors:
+    bonus_room_se_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.bonus_room_se_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Bonus Room SE Window'
+
+- platform: template
+  sensors:
+    laundry_room_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.laundry_room_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Laundry Room Window'
+
+- platform: template
+  sensors:
+    dining_room_n_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.dining_room_n_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Dining Room N Window'
+
+- platform: template
+  sensors:
+    dining_room_s_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.dining_room_s_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Dining Room S Window'
+
+- platform: template
+  sensors:
+    living_room_e_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.living_room_e_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Living Room E Window'
+
+- platform: template
+  sensors:
+    living_room_se_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.living_room_se_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Living Room SE Window'
+
+- platform: template
+  sensors:
+    living_room_sw_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.living_room_sw_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Living Room SW Window'
+
+- platform: template
+  sensors:
+    master_bedroom_se_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.master_bedroom_se_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Master Bedroom SE Window'
+
+- platform: template
+  sensors:
+    master_bedroom_sw_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.master_bedroom_sw_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Master Bedroom SW Window'
+
+- platform: template
+  sensors:
+    master_bedroom_w_window_tamper:
+      value_template: >-
+        {% set state = states('sensor.master_bedroom_w_window_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Master Bedroom W Window'
+
+- platform: template
+  sensors:
+   garage_attic_door_tamper:
+      value_template: >-
+        {% set state = states('sensor.garage_attic_door_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Garage Attic Door'
+
+- platform: template
+  sensors:
+    master_closet_attic_door_tamper:
+      value_template: >-
+        {% set state = states('sensor.master_closet_attic_door_burglar') %}
+        {% if state == '0' %}
+          Normal
+        {% elif state == '3' %}
+          Tamper
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Master Closet Attic Door'
+
+
+
+
+
+
