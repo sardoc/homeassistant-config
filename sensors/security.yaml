@@ -56,8 +56,11 @@
     den_window:
       value_template: >-
         {% set state = states('sensor.den_window_access_control') %}
+        {% set state2 = states('sensor.den_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -70,8 +73,11 @@
     jayden_room_window:
       value_template: >-
         {% set state = states('sensor.jayden_room_window_access_control') %}
+        {% set state2 = states('sensor.jayden_room_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -84,8 +90,11 @@
     back_door:
       value_template: >-
         {% set state = states('sensor.back_door_access_control') %}
+        {% set state2 = states('sensor.back_door_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -98,8 +107,11 @@
     allie_room_window:
       value_template: >-
         {% set state = states('sensor.allie_room_window_access_control') %}
+        {% set state2 = states('sensor.allie_room_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -146,8 +158,11 @@
     bonus_room_north_window:
       value_template: >-
         {% set state = states('sensor.bonus_room_north_window_access_control') %}
+        {% set state2 = states('sensor.bonus_room_north_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -160,8 +175,11 @@
     bonus_room_ne_window:
       value_template: >-
         {% set state = states('sensor.bonus_room_ne_window_access_control') %}
+        {% set state2 = states('sensor.bonus_room_ne_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -174,8 +192,11 @@
     bonus_room_se_window:
       value_template: >-
         {% set state = states('sensor.bonus_room_se_window_access_control') %}
+        {% set state2 = states('sensor.bonus_room_se_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -188,8 +209,11 @@
     laundry_room_window:
       value_template: >-
         {% set state = states('sensor.laundry_room_window_access_control') %}
+        {% set state2 = states('sensor.laundry_room_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -202,8 +226,11 @@
     dining_room_n_window:
       value_template: >-
         {% set state = states('sensor.dining_room_n_window_access_control') %}
+        {% set state2 = states('sensor.dining_room_n_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -216,8 +243,11 @@
     dining_room_s_window:
       value_template: >-
         {% set state = states('sensor.dining_room_s_window_access_control') %}
+        {% set state2 = states('sensor.dining_room_s_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -230,8 +260,11 @@
     living_room_e_window:
       value_template: >-
         {% set state = states('sensor.living_room_e_window_access_control') %}
+        {% set state2 = states('sensor.living_room_e_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -244,8 +277,11 @@
     living_room_se_window:
       value_template: >-
         {% set state = states('sensor.living_room_se_window_access_control') %}
+        {% set state2 = states('sensor.living_room_se_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -258,8 +294,11 @@
     living_room_sw_window:
       value_template: >-
         {% set state = states('sensor.living_room_sw_window_access_control') %}
+        {% set state2 = states('sensor.living_room_sw_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -272,8 +311,11 @@
     master_bedroom_se_window:
       value_template: >-
         {% set state = states('sensor.master_bedroom_se_window_access_control') %}
+        {% set state2 = states('sensor.master_bedroom_se_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -286,8 +328,11 @@
     master_bedroom_sw_window:
       value_template: >-
         {% set state = states('sensor.master_bedroom_sw_window_access_control') %}
+        {% set state2 = states('sensor.master_bedroom_sw_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -300,8 +345,11 @@
     master_bedroom_w_window:
       value_template: >-
         {% set state = states('sensor.master_bedroom_w_window_access_control') %}
+        {% set state2 = states('sensor.master_bedroom_w_window_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -314,8 +362,11 @@
    garage_attic_door:
       value_template: >-
         {% set state = states('sensor.garage_attic_door_access_control') %}
+        {% set state2 = states('sensor.garage_attic_door_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}
@@ -328,8 +379,11 @@
     master_closet_attic_door:
       value_template: >-
         {% set state = states('sensor.master_closet_attic_door_access_control') %}
+        {% set state2 = states('sensor.master_closet_attic_door_burglar') %}
         {% if state == '22' %}
           Open
+        {% elif state2 == '3' %}
+          Tamper
         {% elif state == '23' %}
           Closed
         {% else %}

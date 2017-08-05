@@ -76,6 +76,10 @@ svg, svg * {
   fill: #00FFFF !important;
 }
 
+.window-tamper {
+  fill: #FF4800 !important;
+}
+
 /* Light */
 
 .light-off {

@@ -36,6 +36,8 @@ groups:
         class: 'window-closed'
       - state: 'Open'
         class: 'window-open'
+      - state: 'Tamper'
+        class: 'window-tamper'
 
   - name: Outdoor Lights
     entities:

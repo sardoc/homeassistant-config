@@ -24,7 +24,6 @@ security_view:
     - group.door_sensors
     - group.motion_sensors
     - group.window_sensors
-    - group.tamper_sensors
     - group.siren
 
 #####################################################################
