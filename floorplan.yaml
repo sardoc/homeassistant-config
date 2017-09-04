@@ -129,6 +129,10 @@ groups:
         class: 'text-home'
       - state: 'not_home'
         class: 'text-away'
-
-
+      - state: 'undefined'
+        class: 'text-away'
+      - state: !secret name_work_1
+        class: 'text-away'
+      - state: !secret name_work_2
+        class: 'text-away'
 

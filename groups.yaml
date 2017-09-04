@@ -27,6 +27,19 @@ security_view:
     - group.siren
 
 #####################################################################
+### CLIMATE VIEW
+#####################################################################
+climate_view:
+  name: Climate
+  view: yes
+  icon: mdi:thermometer
+  entities:
+    - group.temperature
+    - group.hvac_status
+    - group.climate_status
+    - group.climate_settings
+
+#####################################################################
 ### AUTOMATION VIEW
 #####################################################################
 automation_view:
@@ -36,6 +49,7 @@ automation_view:
   entities:
     - group.automation
     - group.automation_security
+    - group.automation_climate
 
 #####################################################################
 ### MEDIA VIEW
@@ -47,12 +61,6 @@ media_view:
   entities:
     - media_player.kodi
 
-
-zones:
-  name: Zones
-  entities:
-    - binary_sensor.floorplan
-
 #####################################################################
 ### BATTERY VIEW
 #####################################################################
@@ -62,6 +70,14 @@ sensors_view:
   icon: mdi:battery
   entities:
     - group.battery
+
+#####################################################################
+### Floorplan
+#####################################################################
+zones:
+  name: Zones
+  entities:
+    - binary_sensor.floorplan
 
 #####################################################################
 ### GROUP CONFIGURATION
@@ -79,6 +95,8 @@ humidity:
 temperature:
   name: Temperature
   entities:
+    - sensor.thermostat_temperature
+    - sensor.thermostat_statistics_mean
     - sensor.living_room_multisensor_temperature
     - sensor.dark_sky_temperature
 motion_sensors:
@@ -147,6 +165,16 @@ automation_security:
     - automation.disarm_when_home
     - automation.ios_silence_alarm
     - automation.arm_for_evening_when_home
+automation_climate:
+  name: Climate Automation
+  entities:
+    - automation.set_thermostat_mode_cool
+    - automation.set_thermostat_mode_heat
+    - automation.set_thermostat_mode_off
+    - automation.cool_during_off_peak_hours
+    - automation.cool_during_on_peak_hours
+    - automation.heat_during_off_peak_hours
+    - automation.heat_during_on_peak_hours
 
 location:
   name: Location
@@ -184,6 +212,35 @@ battery:
     - sensor.garage_door_battery
     - sensor.siren_battery
 
+hvac_status:
+  name: HVAC Status
+  entities:
+    - sensor.hvac_mode
+    - sensor.hvac_op_state
+    - sensor.hvac_fan
+    - sensor.hvac_heat_setpoint
+    - sensor.hvac_ac_setpoint
+
+climate_status:
+  name: Climate Info
+  entities:
+    - sensor.time_of_year
+    - sensor.peak_hours
+    - sensor.type_of_day
+    - binary_sensor.workday_sensor
+    - sensor.ac_min
+    - sensor.ac_max
+    - sensor.heat_min
+    - sensor.heat_max
+
+climate_settings:
+  name: Climate Settings
+  entities:
+    - input_select.hvac_mode
+    - input_slider.ac_min
+    - input_slider.ac_max
+    - input_slider.heat_min
+    - input_slider.heat_max
 
 
 

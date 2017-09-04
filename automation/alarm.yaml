@@ -10,27 +10,63 @@
       to: 'Motion'
     - platform: state
       entity_id: sensor.front_door
-      from: 'Closed'
       to: 'Open'
     - platform: state
       entity_id: sensor.garage_entry_door
-      from: 'Closed'
       to: 'Open'
     - platform: state
       entity_id: sensor.back_door
-      from: 'Closed'
       to: 'Open'
     - platform: state
       entity_id: sensor.den_window
-      from: 'Closed'
       to: 'Open'
     - platform: state
       entity_id: sensor.jayden_room_window
-      from: 'Closed'
       to: 'Open'
     - platform: state
       entity_id: sensor.allie_room_window
-      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.master_closet_attic_door
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.garage_attic_door
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.bonus_room_north_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.bonus_room_ne_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.bonus_room_se_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.laundry_room_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.dining_room_n_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.dining_room_s_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.living_room_e_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.living_room_se_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.living_room_sw_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.master_bedroom_se_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.master_bedroom_sw_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.master_bedroom_w_window
       to: 'Open'
   condition:
     - condition: state
@@ -51,27 +87,63 @@
   trigger:
     - platform: state
       entity_id: sensor.front_door
-      from: 'Closed'
       to: 'Open'
     - platform: state
       entity_id: sensor.garage_entry_door
-      from: 'Closed'
       to: 'Open'
     - platform: state
       entity_id: sensor.back_door
-      from: 'Closed'
       to: 'Open'
     - platform: state
       entity_id: sensor.den_window
-      from: 'Closed'
       to: 'Open'
     - platform: state
       entity_id: sensor.jayden_room_window
-      from: 'Closed'
       to: 'Open'
     - platform: state
       entity_id: sensor.allie_room_window
-      from: 'Closed'
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.master_closet_attic_door
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.garage_attic_door
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.bonus_room_north_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.bonus_room_ne_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.bonus_room_se_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.laundry_room_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.dining_room_n_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.dining_room_s_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.living_room_e_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.living_room_se_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.living_room_sw_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.master_bedroom_se_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.master_bedroom_sw_window
+      to: 'Open'
+    - platform: state
+      entity_id: sensor.master_bedroom_w_window
       to: 'Open'
   condition:
     - condition: state

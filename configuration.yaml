@@ -67,7 +67,9 @@ history:
 
 # View all events in a logbook
 logbook:
-
+  exclude:
+    domains:
+      - zwave
 # Track the sun
 sun:
 
@@ -92,6 +94,7 @@ ios:
 alarm_control_panel: !include alarm_control_panel.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
+input_slider: !include input_slider.yaml
 media_player: !include media_players.yaml
 notify: !include notify.yaml
 sensor: !include_dir_merge_list sensors/
@@ -102,7 +105,9 @@ binary_sensor:
   - platform: mqtt
     state_topic: dummy/floorplan/sensor
     name: Floorplan
-
+  - platform: workday
+    country: US
+    province: AZ
 
 panel_custom:
   - name: floorplan

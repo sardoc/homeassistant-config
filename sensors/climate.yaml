@@ -1,0 +1,126 @@
+- platform: statistics
+  entity_id: sensor.thermostat_temperature
+  name: Thermostat Statistics
+
+- platform: template
+  sensors:
+    hvac_mode:
+      friendly_name: "Thermostat Mode"
+      value_template: "{{ states('climate.thermostat_cooling_1') }}"
+
+    hvac_op_state:
+      friendly_name: "HVAC State"
+      value_template: "{{ (states.climate.thermostat_cooling_1.attributes|default({})).operating_state|default('unknown') }}"
+
+    hvac_fan:
+      friendly_name: "HVAC Fan"
+      value_template: "{{ (states.climate.thermostat_cooling_1.attributes|default({})).fan_state|default('unknown') }}"
+
+    hvac_ac_setpoint:
+      friendly_name: "AC Setpoint"
+      value_template: "{{ (states.climate.thermostat_cooling_1.attributes|default({})).temperature|default('unknown') }}"
+
+    hvac_heat_setpoint:
+      friendly_name: "Heat Setpoint"
+      value_template: "{{ (states.climate.thermostat_heating_1.attributes|default({})).temperature|default('unknown') }}"
+
+- platform: template
+  sensors:
+    peak_hours:
+      friendly_name: "Peak Hours"
+      value_template: >-
+        {%- if now().strftime("%A") == "Saturday" -%}
+          Off Peak
+        {%- elif now().strftime("%A") == "Sunday" -%}
+          Off Peak
+        {%- elif states('sensor.time_of_year') == "Winter" -%}
+          {%- if now().strftime('%H%M')|int < 500 -%}
+            Off Peak
+          {%- elif now().strftime('%H%M')|int < 900 -%}
+            On Peak
+          {%- elif now().strftime('%H%M')|int < 1700 -%}
+            Off Peak
+          {%- elif now().strftime('%H%M')|int < 2100 -%}
+            On Peak
+          {%- else -%}
+            Off Peak
+          {%- endif -%}
+        {%- else -%}
+          {%- if now().strftime('%H%M')|int < 1300 -%}
+            Off Peak
+          {%- elif now().strftime('%H%M')|int < 2000 -%}
+            On Peak
+          {%- else -%}
+            Off Peak
+          {%- endif -%}
+        {%- endif -%}
+
+- platform: template
+  sensors:
+    time_of_year:
+      friendly_name: "Time of Year"
+      value_template: >-
+        {%- if now().strftime("%B") == "January" -%}
+          Winter
+        {%- elif now().strftime("%B") == "February" -%}
+          Winter
+        {%- elif now().strftime("%B") == "March" -%}
+          Winter
+        {%- elif now().strftime("%B") == "April" -%}
+          Winter
+        {%- elif now().strftime("%B") == "May" -%}
+          Winter
+        {%- elif now().strftime("%B") == "June" -%}
+          Summer
+        {%- elif now().strftime("%B") == "July" -%}
+          Summer
+        {%- elif now().strftime("%B") == "August" -%}
+          Summer
+        {%- elif now().strftime("%B") == "September" -%}
+          Summer
+        {%- elif now().strftime("%B") == "October" -%}
+          Summer
+        {%- elif now().strftime("%B") == "November" -%}
+          Winter
+        {%- elif now().strftime("%B") == "December" -%}
+          Winter
+        {%- endif -%}
+
+- platform: template
+  sensors:
+    ac_min:
+      friendly_name: "AC Minimum"
+      value_template: >-
+        {{ states('input_slider.ac_min') }}
+
+- platform: template
+  sensors:
+    ac_max:
+      friendly_name: "AC Maximum"
+      value_template: >-
+        {{ states('input_slider.ac_max') }}
+
+- platform: template
+  sensors:
+    heat_min:
+      friendly_name: "Heat Minimum"
+      value_template: >-
+        {{ states('input_slider.heat_min') }}
+
+- platform: template
+  sensors:
+    heat_max:
+      friendly_name: "Heat Maximum"
+      value_template: >-
+        {{ states('input_slider.heat_max') }}
+
+
+
+
+
+
+
+
+
+
+

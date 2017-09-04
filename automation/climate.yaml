@@ -1,0 +1,140 @@
+
+
+- alias: 'Set Thermostat Mode Cool'
+  trigger:
+    - platform: state
+      entity_id: input_select.hvac_mode
+      to: 'On - Cool'
+  action:
+    service: climate.set_operation_mode
+    entity_id: climate.thermostat_cooling_1
+    data:
+      operation_mode: 'Cool'
+
+- alias: 'Set Thermostat Mode Heat'
+  trigger:
+    - platform: state
+      entity_id: input_select.hvac_mode
+      to: 'On - Heat'
+  action:
+    service: climate.set_operation_mode
+    entity_id: climate.thermostat_heating_1
+    data:
+      operation_mode: 'Heat'
+
+- alias: 'Set Thermostat Mode Off'
+  trigger:
+    - platform: state
+      entity_id: input_select.hvac_mode
+      to: 'Off'
+  action:
+    - service: climate.set_operation_mode
+      entity_id: climate.thermostat_heating_1
+      data:
+        operation_mode: 'Off'
+    - service: climate.set_operation_mode
+      entity_id: climate.thermostat_cooling_1
+      data:
+        operation_mode: 'Off'
+
+- alias: 'Cool during On Peak Hours'
+  trigger:
+    - platform: state
+      entity_id: sensor.peak_hours
+      to: 'On Peak'
+    - platform: state
+      entity_id: input_select.hvac_mode
+      to: "On - Cool"
+    - platform: state
+      entity_id: input_slider.ac_max
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.hvac_mode
+        state: "On - Cool"
+      - condition: state
+        entity_id: sensor.peak_hours
+        state: 'On Peak'
+  action:
+    service: climate.set_temperature
+    data_template:
+      entity_id: climate.thermostat_cooling_1
+      temperature: '{{ states.input_slider.ac_max.state | int }}'
+
+- alias: 'Cool during Off Peak Hours'
+  trigger:
+    - platform: state
+      entity_id: sensor.peak_hours
+      to: 'Off Peak'
+    - platform: state
+      entity_id: input_select.hvac_mode
+      to: "On - Cool"
+    - platform: state
+      entity_id: input_slider.ac_min
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.hvac_mode
+        state: "On - Cool"
+      - condition: state
+        entity_id: sensor.peak_hours
+        state: 'Off Peak'
+  action:
+    service: climate.set_temperature
+    data_template:
+      entity_id: climate.thermostat_cooling_1
+      temperature: '{{ states.input_slider.ac_min.state | int }}'
+
+- alias: 'Heat during On Peak Hours'
+  trigger:
+    - platform: state
+      entity_id: sensor.peak_hours
+      to: 'On Peak'
+    - platform: state
+      entity_id: input_select.hvac_mode
+      to: "On - Heat"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.hvac_mode
+        state: "On - Heat"
+      - condition: state
+        entity_id: sensor.peak_hours
+        state: 'On Peak'
+  action:
+    service: climate.set_temperature
+    data_template:
+      entity_id: climate.thermostat_heating_1
+      temperature: '{{ states.input_slider.heat_min.state | int }}'
+
+- alias: 'Heat during Off Peak Hours'
+  trigger:
+    - platform: state
+      entity_id: sensor.peak_hours
+      to: 'Off Peak'
+    - platform: state
+      entity_id: input_select.hvac_mode
+      to: "On - Heat"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.hvac_mode
+        state: "On - Heat"
+      - condition: state
+        entity_id: sensor.peak_hours
+        state: 'Off Peak'
+  action:
+    service: climate.set_temperature
+    data_template:
+      entity_id: climate.thermostat_heating_1
+      temperature: '{{ states.input_slider.heat_max.state | int }}'
+
+
+
+
+
+

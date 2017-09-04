@@ -1,0 +1,30 @@
+ac_min:
+  name: "AC Minimum"
+  initial: 81
+  min: 75
+  max: 85
+  step: 1
+
+ac_max:
+  name: "AC Maximum"
+  initial: 85
+  min: 75
+  max: 85
+  step: 1
+
+heat_min:
+  name: "Heat Minimum"
+  initial: 68
+  min: 65
+  max: 75
+  step: 1
+
+heat_max:
+  name: "Heat Maximum"
+  initial: 72
+  min: 65
+  max: 75
+  step: 1
+
+
+
