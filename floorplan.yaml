@@ -23,6 +23,7 @@ groups:
       - sensor.dining_room_n_window
       - sensor.dining_room_s_window
       - sensor.living_room_e_window
+      - sensor.living_room_s_window
       - sensor.living_room_se_window
       - sensor.living_room_sw_window
       - sensor.master_bedroom_se_window

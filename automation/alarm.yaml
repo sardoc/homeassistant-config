@@ -168,12 +168,6 @@
   action:
     - service: switch.turn_on
       entity_id: switch.siren_switch
-    - service: notify.all
-      data:
-        message: "ALARM!"
-        data:
-          push:
-            category: "ALARM"
 
 - alias: 'Siren off when disarmed'
   trigger:
@@ -183,10 +177,6 @@
   action:
     - service: switch.turn_off
       entity_id: switch.siren_switch
-    - service: notify.all
-      data:
-        message: "Alarm Disarmed"
-
 
 ###############################################
 ###
@@ -254,8 +244,20 @@
       data:
         code: !secret alarm_code
     - service: notify.all
+      data_template:
+        message: "{{ trigger.to_state.attributes.friendly_name }} arrived home, alarm disarmed"
+
+- alias: 'Notify when garage door opens'
+  trigger:
+    - platform: state
+      entity_id: sensor.garage_door
+      to: 'Open'
+  action:
+    - service: notify.all
       data:
-        message: "Arrived home, alarm disarmed"
+        message: "Garage door opened"
+
+
 
 ###############################################
 ###

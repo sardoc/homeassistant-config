@@ -49,6 +49,30 @@
       friendly_name: 'Garage Entry Door'
 
 #####################################################################
+### Monoprice Vibration Sensor
+#####################################################################
+- platform: template
+  sensors:
+    living_room_s_window:
+      value_template: >-
+        {% set state = states('sensor.living_room_s_window_alarm_level') %}
+        {% set state2 = states('sensor.living_room_s_window_burglar') %}
+        {% if state == '255' %}
+          {% if state2 == '2' %}
+            Open
+          {% elif state2 == '3' %}
+            Tamper
+          {% else %}
+            {{ state }}
+          {% endif %}
+        {% elif state == '0' %}
+          Closed
+        {% else %}
+          {{ state }}
+        {% endif %}
+      friendly_name: 'Living Room South Window'
+
+#####################################################################
 ### Aeotec Door/Window Sensor
 #####################################################################
 - platform: template

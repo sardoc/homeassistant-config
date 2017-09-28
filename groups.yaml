@@ -165,6 +165,8 @@ automation_security:
     - automation.disarm_when_home
     - automation.ios_silence_alarm
     - automation.arm_for_evening_when_home
+    - automation.disarm_for_morning_when_home
+    - automation.notify_when_garage_door_opens
 automation_climate:
   name: Climate Automation
   entities:
